@@ -9,6 +9,8 @@ Light footprint ActiveMQ image with
 `docker pull diside/activemq`
 
 ## example how to run
+
+```bash
 docker pull diside/activemq
  docker run --name='activemq' -d \
 -e 'ACTIVEMQ_REMOVE_DEFAULT_ACCOUNT=true' \
@@ -19,9 +21,11 @@ docker pull diside/activemq
 -p 61616:61616 \
 -p 61613:61613 \
 diside/activemq
+```
 
 #to change default password web console
-docker-edit activemq /var/lib/activemq/conf/jetty-realm.properties
+
+`docker-edit activemq /var/lib/activemq/conf/jetty-realm.properties`
 
 
 ### to create your own ActiveMQ image
