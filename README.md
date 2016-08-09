@@ -6,12 +6,12 @@ Light footprint ActiveMQ image with
 
 ## how to use
 
-`docker pull diside/activemq`
+`docker pull diside/docker-activemq`
 
 ## example how to run
 
 ```bash
-docker pull diside/activemq
+docker pull diside/docker-activemq
  docker run --name='activemq' -d \
 -e 'ACTIVEMQ_REMOVE_DEFAULT_ACCOUNT=true' \
 -e 'ACTIVEMQ_ADMIN_LOGIN=admin' -e 'ACTIVEMQ_ADMIN_PASSWORD=password' \
@@ -20,7 +20,7 @@ docker pull diside/activemq
 -p 8161:8161 \
 -p 61616:61616 \
 -p 61613:61613 \
-diside/activemq
+diside/docker-activemq
 ```
 
 #to change default password web console
