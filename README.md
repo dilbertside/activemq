@@ -1,8 +1,14 @@
-# docker-activemq
-Light footprint ActiveMQ image with
+# ActiveMQ docker Image
+
+Yet Another ActiveMQ docker image.
+Not satisfied by others done, due to Java Oracle Licensing issue, I propose another contribution.
+Inspired by webcenter/activemq and rmohr/activemq
+
+Footprint:
 
 * busybox as OS container
 * openjdk-8-jdk-alpine
+* ActiveMQ 5.14.0
 
 ## how to get image
 
