@@ -31,7 +31,9 @@ diside/activemq
 ### to create your own ActiveMQ image
 
 `./build.sh diside`
+
 or with specific ActiveMQ version
+
 `./build.sh diside 5.14.0`
 
 
