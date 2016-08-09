@@ -53,14 +53,10 @@ else
   curl -O http://archive.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$FILE
 fi
 
-docker build --build-arg=ACTIVEMQ_VERSION="$ACTIVEMQ_VERSION" --tag "$DOCK_REPO/activemq:$ACTIVEMQ_VERSION" --tag "$DOCK_REPO/activemq:latest" .
+echo "docker build locally?"
+confirm docker build --build-arg=ACTIVEMQ_VERSION="$ACTIVEMQ_VERSION" --tag "$DOCK_REPO/activemq:$ACTIVEMQ_VERSION" --tag "$DOCK_REPO/activemq:latest" .
 
 docker inspect "$DOCK_REPO/activemq:$ACTIVEMQ_VERSION"
-
-docker push "$DOCK_REPO/activemq:$ACTIVEMQ_VERSION"
-
-echo "docker push $DOCK_REPO/activemq:$ACTIVEMQ_VERSION as latest?"
-confirm docker push "$DOCK_REPO/activemq:latest"
 
 echo "All done"
 

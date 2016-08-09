@@ -9,9 +9,10 @@ ENV ACTIVEMQ_TCP=61616 ACTIVEMQ_AMQP=5672 ACTIVEMQ_STOMP=61613 ACTIVEMQ_MQTT=188
 
 ENV ACTIVEMQ_HOME /var/lib/activemq
 
-COPY "$ACTIVEMQ-bin.tar.gz" /tmp
+#COPY "$ACTIVEMQ-bin.tar.gz" /tmp
 RUN \
     mkdir -p /var/lib && \
+    wget -q -O /tmp/$ACTIVEMQ-bin.tar.gz -P /tmp http://archive.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz && \
     tar zxf /tmp/"$ACTIVEMQ-bin.tar.gz" -C /var/lib/ && \
     rm /tmp/"$ACTIVEMQ-bin.tar.gz" && \
     ln -s /var/lib/$ACTIVEMQ $ACTIVEMQ_HOME && \
@@ -23,8 +24,8 @@ USER activemq
 
 WORKDIR $ACTIVEMQ_HOME
 VOLUME ["/var/lib/$ACTIVEMQ/conf", "/var/lib/$ACTIVEMQ/data"]
-RUN ls -lha /var/lib/
-RUN ls -lha /var/lib/$ACTIVEMQ
+#RUN ls -lha /var/lib/
+#RUN ls -lha /var/lib/$ACTIVEMQ
 EXPOSE $ACTIVEMQ_TCP $ACTIVEMQ_AMQP $ACTIVEMQ_STOMP $ACTIVEMQ_MQTT $ACTIVEMQ_WS $ACTIVEMQ_UI
 
 CMD ["/bin/sh", "-c", "bin/activemq console"]
