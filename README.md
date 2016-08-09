@@ -4,11 +4,11 @@ Light footprint ActiveMQ image with
 * busybox as OS container
 * openjdk-8-jdk-alpine
 
-## how to use
+## how to get image
 
 `docker pull diside/docker-activemq`
 
-## example how to run
+## how to run image (example)
 
 ```bash
 docker pull diside/docker-activemq
@@ -23,7 +23,7 @@ docker pull diside/docker-activemq
 diside/docker-activemq
 ```
 
-#to change default password web console
+### to change default password web console
 
 `docker-edit activemq /var/lib/activemq/conf/jetty-realm.properties`
 
@@ -38,6 +38,7 @@ or with specific ActiveMQ version
 
 
 ## script util to edit file in a container
+
 ```bash
 sudo tee /usr/bin/docker-edit <<-'EOF'
 #!/bin/bash
